@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000"
+        app:motionInterpolator="linear">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/gallery"
+            app:touchAnchorSide="bottom" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.6"
+                app:framePosition="80"
+                app:motionTarget="@+id/gallery" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/gallery"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1.0"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/gallery"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.0"
+            android:translationX="0dp"
+            android:translationY="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+</MotionScene>
