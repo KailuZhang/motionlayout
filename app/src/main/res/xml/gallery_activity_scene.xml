@@ -1,53 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@id/base_state"
-        app:duration="250"
-        app:motionInterpolator="linear">
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@id/base_state"
+        motion:duration="250"
+        motion:motionInterpolator="linear">
         <OnSwipe
-            app:dragDirection="dragUp"
-            app:touchAnchorId="@id/motion_layout"
-            app:touchAnchorSide="bottom" />
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@id/motion_layout"
+            motion:touchAnchorSide="bottom" />
 
     </Transition>
 
     <Transition
-        app:constraintSetEnd="@id/add_cart_end"
-        app:constraintSetStart="@id/base_state"
-        app:duration="800"
-        app:motionInterpolator="linear">
+        motion:constraintSetEnd="@id/add_cart_end"
+        motion:constraintSetStart="@id/base_state"
+        motion:duration="800"
+        motion:motionInterpolator="linear">
 
         <OnClick
-            app:clickAction="toggle"
-            app:targetId="@id/add_cart_button" />
+            motion:clickAction="toggle"
+            motion:targetId="@id/add_cart_button" />
 
         <KeyFrameSet>
             <KeyAttribute
                 android:alpha="1.0"
-                app:framePosition="1"
-                app:motionTarget="@id/animation_view" />
+                motion:framePosition="1"
+                motion:motionTarget="@id/animation_view" />
             <KeyAttribute
-                app:framePosition="40"
-                app:motionTarget="@id/animation_view">
+                motion:framePosition="40"
+                motion:motionTarget="@id/animation_view">
                 <CustomAttribute
-                    app:attributeName="RoundPercent"
-                    app:customFloatValue="1" />
+                    motion:attributeName="RoundPercent"
+                    motion:customFloatValue="1" />
             </KeyAttribute>
             <KeyPosition
-                app:framePosition="40"
-                app:keyPositionType="pathRelative"
-                app:motionTarget="@id/animation_view"
-                app:percentX="0.1"
-                app:percentY="-0.2" />
-            <KeyPosition
-                app:framePosition="60"
-                app:keyPositionType="pathRelative"
-                app:motionTarget="@id/animation_view"
-                app:percentX="0.2"
-                app:percentY="-0.2" />
+                motion:framePosition="40"
+                motion:keyPositionType="deltaRelative"
+                motion:motionTarget="@id/animation_view"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="0"
+                motion:percentY="0" />
         </KeyFrameSet>
     </Transition>
 
@@ -56,25 +51,25 @@
             android:id="@id/motion_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:motionStagger="1"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
             android:id="@id/scrollable"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/motion_layout" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/motion_layout" />
         <Constraint
             android:id="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:alpha="0.0"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:pathMotionArc="none"
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="RoundPercent"
-                app:customFloatValue="0" />
+                motion:attributeName="RoundPercent"
+                motion:customFloatValue="0" />
         </Constraint>
     </ConstraintSet>
 
@@ -83,24 +78,24 @@
             android:id="@id/motion_layout"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:progress="1" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:progress="1" />
         <Constraint
             android:id="@id/scrollable"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/motion_layout" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/motion_layout" />
         <Constraint
             android:id="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:alpha="0.0"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="RoundPercent"
-                app:customFloatValue="0" />
+                motion:attributeName="RoundPercent"
+                motion:customFloatValue="0" />
         </Constraint>
     </ConstraintSet>
 
@@ -109,21 +104,21 @@
             android:id="@id/motion_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
             android:id="@id/scrollable"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/motion_layout" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/motion_layout" />
         <Constraint
             android:id="@id/animation_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toStartOf="parent" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintDimensionRatio="1:1"
+            motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
 
 </MotionScene>
